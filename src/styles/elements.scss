@@ -1,0 +1,62 @@
+body {
+  background-color: $dark-background;
+  margin-top: 0;
+  font-family: $body-font;
+  color: rgba(255, 255, 255, 0.8);
+
+  @media (max-width: $small-screen-breakpoint-px) {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  @media (min-width: $small-screen-breakpoint-px) {
+    margin-left: 25%;
+    margin-right: 25%;
+    /* also set font sizes??? */
+  }
+}
+
+.block-quote {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 2rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.8);
+  padding-left: 2rem;
+}
+
+p {
+  line-height: 2rem;
+  margin-block-start: 0px;
+  font-weight: 300;
+  font-size: 1.3rem;
+
+  a {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+ul {
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 2rem;
+}
+
+img {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.img-container {
+  text-align: center;
+}
+
+.caption {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin: 0.8rem;
+}
+
+
