@@ -2,8 +2,8 @@
 
 top-bar {
   .header-container {
-    position: sticky;
-    top: 0;
+    // position: sticky;
+    // top: 0;
     background-color: $dark-background;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -53,6 +53,10 @@ top-bar {
         background-color: rgba(153, 7, 0, $alpha);
         height: 2rem;
         width: 2rem;
+        @media (max-width: $small-screen-breakpoint-px) {
+          height: 1.5rem;
+          width: 1.5rem;
+        }
       }
     }
 
@@ -62,6 +66,10 @@ top-bar {
         background-color: rgba(153, 7, 0, $alpha);
         height: 2rem;
         width: 2rem;
+        @media (max-width: $small-screen-breakpoint-px) {
+          height: 1.5rem;
+          width: 1.5rem;
+        }
       }
     }
 

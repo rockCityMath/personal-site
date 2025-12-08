@@ -18,18 +18,25 @@ body {
 .block-quote {
   font-style: italic;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: $body-font-size;
   color: rgba(255, 255, 255, 0.8);
   line-height: 2rem;
   border-left: 2px solid rgba(255, 255, 255, 0.8);
   padding-left: 2rem;
+
+  @media (max-width: $small-screen-breakpoint-px) {
+    font-size: $body-font-size-sm-screen;
+  }
 }
 
 p {
-  line-height: 2rem;
+  line-height: 1.8rem;
   margin-block-start: 0px;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: $body-font-size;
+  @media (max-width: $small-screen-breakpoint-px) {
+    font-size: $body-font-size-sm-screen !important;
+  }
 
   a {
     color: rgba(255, 255, 255, 0.8);
@@ -38,7 +45,7 @@ p {
 
 ul {
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: $body-font-size;
   color: rgba(255, 255, 255, 0.8);
   line-height: 2rem;
 }
@@ -50,6 +57,12 @@ img {
 
 .img-container {
   text-align: center;
+  margin-right: 4rem;
+  margin-left: 4rem;
+  @media (max-width: $small-screen-breakpoint-px) {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
 }
 
 .caption {

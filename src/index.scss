@@ -2,12 +2,17 @@
 @import 'styles/headers';
 @import 'styles/elements';
 
+.article-title {
+  position: sticky;
+  top: 0;
+  background-color: $dark-background;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
-
-/* use variables for colors/fonts/sizes */
-
-
-
+  h2 {
+    margin-bottom: 0;
+  }
+}
 
 .text-right {
   text-align: right;
@@ -59,7 +64,7 @@
   color: rgba(255, 255, 255, 0.7);
   font-size: 1.8rem;
   font-family: $header-font;
-  margin-top: -0.4rem;
+  margin-top: 0rem;
   margin-bottom: 0;
 }
 

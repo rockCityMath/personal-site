@@ -8,8 +8,11 @@ h1 {
   font-family: $header-font;
 
   @media (max-width: $small-screen-breakpoint-px) {
-    line-height: 2.7rem;
+    line-height: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
   }
+
 }
 
 h2 {
@@ -21,6 +24,10 @@ h2 {
   font-family: $header-font;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.8);
+
+  @media (max-width: $small-screen-breakpoint-px) {
+    font-size: 2rem;
+  }
 
 }
 
