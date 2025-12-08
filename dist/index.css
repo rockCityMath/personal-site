@@ -9,7 +9,9 @@ h1 {
 }
 @media (max-width: 450px) {
   h1 {
-    line-height: 2.7rem;
+    line-height: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -22,6 +24,11 @@ h2 {
   font-family: "IBM Plex Sans";
   font-weight: 900;
   color: rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 450px) {
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 h3 {
@@ -61,18 +68,28 @@ body {
 .block-quote {
   font-style: italic;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 2rem;
   border-left: 2px solid rgba(255, 255, 255, 0.8);
   padding-left: 2rem;
 }
+@media (max-width: 450px) {
+  .block-quote {
+    font-size: 1.1rem;
+  }
+}
 
 p {
-  line-height: 2rem;
+  line-height: 1.8rem;
   margin-block-start: 0px;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+}
+@media (max-width: 450px) {
+  p {
+    font-size: 1.1rem !important;
+  }
 }
 p a {
   color: rgba(255, 255, 255, 0.8);
@@ -80,7 +97,7 @@ p a {
 
 ul {
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
   line-height: 2rem;
 }
@@ -92,6 +109,14 @@ img {
 
 .img-container {
   text-align: center;
+  margin-right: 4rem;
+  margin-left: 4rem;
+}
+@media (max-width: 450px) {
+  .img-container {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
 }
 
 .caption {
@@ -101,7 +126,17 @@ img {
   margin: 0.8rem;
 }
 
-/* use variables for colors/fonts/sizes */
+.article-title {
+  position: sticky;
+  top: 0;
+  background-color: #0D0D0D;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.article-title h2 {
+  margin-bottom: 0;
+}
+
 .text-right {
   text-align: right;
 }
@@ -153,7 +188,7 @@ img {
   color: rgba(255, 255, 255, 0.7);
   font-size: 1.8rem;
   font-family: "IBM Plex Sans";
-  margin-top: -0.4rem;
+  margin-top: 0rem;
   margin-bottom: 0;
 }
 
