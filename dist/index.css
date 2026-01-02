@@ -4,7 +4,7 @@ h1 {
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 0px;
   text-transform: uppercase;
-  letter-spacing: -4px;
+  letter-spacing: -3px;
   font-family: "IBM Plex Sans";
 }
 @media (max-width: 450px) {
@@ -118,6 +118,9 @@ img {
     margin-left: 2rem;
   }
 }
+.img-container img {
+  max-height: 50rem;
+}
 
 .caption {
   font-size: 0.8rem;
@@ -127,8 +130,6 @@ img {
 }
 
 .article-title {
-  position: sticky;
-  top: 0;
   background-color: #0D0D0D;
   padding-top: 1rem;
   padding-bottom: 1rem;

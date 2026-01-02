@@ -53,7 +53,8 @@
     <br>
     <br>
 
-    <b>Potentiometer</b> - An electronic component that allows a person to rotate part of it in order change its resistance value, basically allowing us to turn a knob to control the level of something (in this case, volume).
+    <b>Potentiometer</b> - An electronic component that allows a person to rotate part of it in order change its resistance value, 
+      basically allowing us to turn a knob to control the level of something (in this case, volume).
     <br>
     <br>
 
@@ -75,7 +76,8 @@
 
   
   <p>
-    I did a small bit of prototyping to ensure I could connect a switch to a microcontroller and send that value to my computer, and everything worked as expected. Unfortunately I don't have any pictures of this.
+    I did a small bit of prototyping to ensure I could connect a switch to a microcontroller and send that value to my computer, 
+    and everything worked as expected. Unfortunately I don't have any pictures of this.
   </p>
 
   <h3>Aug 24, 2024 - Get Potentiometers and Switches</h3>
@@ -86,7 +88,9 @@
   </div>
 
   <p>
-    Elegant right? It did work though, you can see in the top portion of the enclosure (the box my mouse came in) the potentiometers and switch are soldered to some jump cables and those cables are plugged into the microcontroller. Funny enough, in this state it could basically do exactly what I want (telling my computer the position of the knob and whether a switch is on or off).
+    Elegant right? It did work though, you can see in the top portion of the enclosure (the box my mouse came in) the potentiometers and switch are 
+    soldered to some jump cables and those cables are plugged into the microcontroller. Funny enough, in this state it could basically do exactly 
+    what I want (telling my computer the position of the knob and whether a switch is on or off).
   </p>
 
   <h3>Sep 5, 2024 - Custom PCB Delivered</h3>
@@ -102,6 +106,227 @@
   </div>
 
   <p>
-    Designing a PCB (printed circuit board) seemed like a good next step since there were so many wires with just 2 potentiometers and a switch, plus it didn't seem too out of reach because of the modern services that let you order personal-sized batches of custom PCBs for a pretty reasonable price. The board above allows a switch, LED, and potentiometer to be soldered in and then controlled using 5 pins at the bottom. This ended up being pretty straightforward to design and order, and got me familiar with the PCB process.
+    Designing a PCB (printed circuit board) seemed like a good next step since there were so many wires with just 2 potentiometers and a switch, 
+    plus it didn't seem too out of reach because of the modern services that let you order personal-sized batches of custom PCBs for a pretty reasonable price. 
+    The board above allows a switch, LED, and potentiometer to be soldered in and then controlled using 5 pins at the bottom. 
+    This ended up being pretty straightforward to design and order, and got me familiar with the PCB process.
   </p>
+
+  <h3>Sep 29, 2024 - Add a Shift Register and Multiplexer to the Design</h3>
+
+  <div class="img-container">
+    <img src="./imgs/shiftreg-multiplexer.png"/>
+    <div class="caption">Using a Shift Register and Multiplexer to Control Components on Version 1 PCBs</div>
+  </div>
+
+  <p>
+    While the PCB design above allowed some consolidation of wires, a bit more was preferable since I wanted to have 5 potentiometer-switch-LED columns, 
+    and I wanted to have all of them controlled through one board.
+  </p>
+
+  <p>
+    I took a digital logic class in college so I vaguely remembered the concept of multiplexers and shift registers. 
+    The multiplexer allows me to interface with 16 outputs using only 5 of the pins on my microcontroller, and the shift register allows me 
+    to set the on/off state of all LEDs using only 3 of the pins so I implemented both of those in the prototype and 
+    switched to using an ESP32 because of its size and price.
+  </p>
+
+  <h3>Oct 14, 2024 - Design and Assemble First Full PCB</h3>
+
+  <div class="img-container">
+    <img src="./imgs/pcb2-kicad.png"/>
+    <div class="caption">PCB Version 2 Being Designed in KiCAD</div>
+  </div>
+
+  <div class="img-container">
+    <img src="./imgs/pcb2-assembly.png"/>
+    <div class="caption">PCB Version 2 Being Assembled in My Highly Advanced Workshop</div>
+  </div>
+
+  <div class="img-container">
+    <img src="./imgs/pcb2-full.png"/>
+    <div class="caption">PCB Version 2 Fully Assembled and Connected to Microcontroller</div>
+  </div>
+
+  <p>
+    You know how printed circuit board are supposed to make it so your circuit is fully printed on a board? 
+    Well, I was not aware that some multiplexers don't cooperate when you leave some of their pins unconnected 
+    (hence the wires on the left chip of the board). The shift register on the other hand… I just sold on, straight up 
+    did not design the board with all the connections it needed (hence the wires on the right chip of the board).
+  </p>
+
+  <p>Those issues aside, it works and the wire situation is much-improved.</p>
+
+  <h3>Oct 29, 2024 - Design and Assemble Second Full PCB</h3>
+
+  <div class="img-container">
+    <img src="./imgs/pcb3-full.png"/>
+    <div class="caption">PCB Version 3 Fully Assembled</div>
+  </div>
+
+  <p>
+    The previous PCB was definitely along the lines of what I wanted, but it had some major design issues and was a lot larger than 
+    it needed to be, so I redesigned it with that in mind. To celebrate the design breakthrough I upgraded to the box my light bulbs came in!
+  </p>
+
+  <h3>Nov 27 , 2024 - First Prototype of a Sheet Metal Enclosure</h3>
+
+  <div class="img-container">
+    <img src="./imgs/enclosure1-face.png"/>
+    <div class="caption">Enclosure Version 1 Faceplate</div>
+  </div>
+
+  <p>
+    Now that I was onto designing an enclosure I was 100% out of my element.
+  </p>
+
+  <p>
+    The enclosure needed to be fabricated at a reasonable cost which removed the idea of CNC milling from consideration. 
+    When looking at other techniques I learned of sheet metal fabrication which consists of cutting metal from large sheets and bending 
+    it into the desired shape. I saw good reviews of the site SendCutSend, which allows you to upload CAD files and 
+    they cut/bend them into the desired shape and ship them to you.
+  </p>
+
+  <p>
+    Next, I pretty arbitrarily chose Fusion360 as the CAD software I’d learn, which was fairly straightforward for something this basic. 
+    However, designing around a sheet metal fabrication process presents a few constraints, such as not being able to bend 
+    metal into a box shape, and less precision on cuts/bends.
+  </p>
+
+  <p>
+    You can see from the picture above I sold again and somehow indicated I wanted a bend in the middle of the sheet that was going 
+    to be the façade of my potentiometers and switches.
+  </p>
+
+  <h3>Feb 19, 2025 - Second Prototype of a Sheet Metal Enclosure</h3>
+
+  <div class="img-container">
+    <img src="./imgs/enclosure2-full.png"/>
+    <div class="caption">Enclosure Version 2 (JBWelded Together)</div>
+  </div>
+
+  <p>
+    Even though the previous attempt at an enclosure was rough, it made me realize all the knobs and switches were too spread out 
+    and the enclosure would end up too large (I decided I really did not want the device to be taller than it was deep as it would get pushed 
+    over when someone tried using the controls). So, after much deliberation I decided on a new layout for the faceplate that I then designed the rest of the enclosure around it.
+  </p>
+
+  <p>
+    I remember this being particularly difficult, the sheet metal has a lot of rules around how it can be bent, and 
+    I wanted to minimize the amount of screws that I had to use since they would be visible on the outside. 
+    I decided on having a faceplate, backplate, and baseplate, then having an elongated “U” shaped top-plate to cover everything up. 
+    I also recessed the face and back plates under the top-plate since it looks cool.
+  </p>
+
+  <h3>Feb, 2025 to Aug 2025 - Project Experiences Desolation</h3>
+
+  <p>
+    So, the basic enclosure design and electronics were done, but I was stuck in limbo trying to think of how to 
+    actually connect all the pieces of sheet metal and how I would mount the PCB and microcontroller inside of it.
+  </p>
+
+  <p>
+    I stopped working on the project much after this, work and life got busy and I didn’t have any clear next steps. 
+    However, I thought about it often and had much support from my girlfriend who even bankrolled some forward progress ❤. So during this time the 
+    thought of finishing just sat in the back of my mind.
+  </p>
+
+  <h3>Aug 1, 2025 - Project Experiences Revival by 3D Printer</h3>
+
+  <div class="img-container">
+    <img src="./imgs/internal-brackets-mount.png"/>
+    <div class="caption">First Prototype of Internal Brackets and Electronics Mount</div>
+  </div>
+
+  <div class="img-container">
+    <img src="./imgs/soldering.png"/>
+    <div class="caption">Soldering ICs, Potentiometers, Switches, and LEDs to the PCB</div>
+  </div>
+
+  <div class="img-container">
+    <img src="./imgs/proto3-full.png"/>
+    <div class="caption">3D Printed Prototype of Enclosure Version 3 Fully Assembled</div>
+  </div>
+
+  <p>
+    I had always harbored a slight anti-3D-printer sentiment because I personally don’t think their output is all that pretty. 
+    But, I’ve come to accept that it’s totally fine for some applications, and in the case of my project, 
+    it can be used to print pieces for inside the enclosure.
+  </p>
+
+  <p>
+    Having this made it much easier to reason about and iterate on the design, eventually I was able to print brackets that hold 
+    the front and back plate in place, and a mount to hold the microcontroller and PCB in place.
+  </p>
+
+  <h3>Aug 20, 2025 - Final Sheet Metal Parts Delivered and Assembled</h3>
+
+  <div class="img-container">
+    <img src="./imgs/final-front.png"/>
+    <div class="caption">Front View of Final Device</div>
+  </div>
+
+  <div class="img-container">
+    <img src="./imgs/final-back.png"/>
+    <div class="caption">Back View of Final Device</div>
+  </div>
+
+  <div class="img-container">
+    <img src="./imgs/final-topplateless.png"/>
+    <div class="caption">Final Device With Top-Plate Removed</div>
+  </div>
+
+  <div class="img-container">
+    <img src="./imgs/demo.gif"/>
+    <div class="caption">Demonstration of Functionality</div>
+  </div>
+
+  <p>
+    Having finished the design, I ordered the last iteration of sheet metal parts. The fabricator offered powder coating 
+    (if you can stomach the price) which I went for in the name of aesthetics and the end result is exactly what I was 
+    hoping for: a black metal exterior, small silver screws, low-brightness red LEDs, and black knurled metal knobs with one white arrow to indicate position. 
+    For those curious, it was $125 for the sheet metal, and with the cost of components and the board this final version cost me about $185 total.
+  </p>
+
+  <p>
+    For connecting the top-plate to the rest of the enclosure, there are magnets embedded under the thumb-shaped 
+    cutouts and magnets superglued to the top-plate (which fit into the thumb-shaped cutouts) seen in the image. 
+    I ended up really liking this mechanism because it’s easy to remove the top-plate and it has a really nice tactile feel when interacting with it in person.
+  </p>
+
+  <h2 style="margin-bottom: -2rem; margin-top: 3rem;">Takeaways</h2>
+
+  <h3>Keep the Real World In Mind</h3>
+
+  <p>
+    When I first started this project, I thought “a box with holes for switches and knobs will be easy enough to design”, 
+    and sure enough it is, until I wanted it to actually materialize in the real world.
+  </p>
+
+  <p>
+    I’ve found it much easier to consider any constraints around bringing your project into the real world upfront, 
+    rather than trying to disfigure an impractical plan/design into cooperating (which tends to be futile).
+  </p>
+
+  <h3>Pick Your Battles</h3>
+
+  <p>
+    Don’t let your ego derail you. Every project will have issues, but some should be looked past at times for the 
+    sake of actually achieving the end goal or you’ll get caught up infinitely reworking some specific aspect that blocks you from 
+    any practical progress and burns your finite time and money.
+  </p>
+
+  <p>
+    Make informed decisions on what is worth fixing/improving based on your goals, but remember that common 
+    sentiment: “perfect is the enemy of done “— and something that is done tends to be wildly more practical, 
+    interesting, and useful than something that is not.
+  </p>
+
+  <h3>Just Figure It Out</h3>
+
+  <p>
+    Don’t get too caught up in what you do or don’t have experience in, just start at a reasonable spot and 
+    you can figure it out along the way. With enough iteration and failure (learning) it’s highly likely you end up completing whatever you want.
+  </p>
+
 </body>
