@@ -1,0 +1,122 @@
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="/index.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=home,info" />
+
+  <!-- Components -->
+  <script src="/components/topbar/topbar.js" type="module"></script>
+</head>
+
+<body>
+  <top-bar></top-bar>
+
+  <div class="article-title">
+    <div class="date">June 19, 2025</div>
+    <h2>A Light Algorithm for Ladder-Style 1v1 Arenas</h2>
+  </div>
+  
+  <p>
+    In the year 16384 the world is filled with an unfathomable number of unique soccer arenas floating in space. 
+    After the singularity - at the Maslow-Messi Horizon - humans had all material burdens stripped and replaced with the 
+    goal of becoming the best one-on-one soccer player to exist. In the towering, immaculate white walls of each arena, 
+    your pleasurably straightforward reality is deeply engraved in black text.
+  </p>
+
+  <p class="quote">
+    Win a match and you’ll play the next in a higher rank arena with a stronger opponent - lose and you’ll play the next in a lower rank arena with a weaker opponent.
+  </p>
+
+  <p>
+    In the time between your matches you find yourself wondering how the AI agents implemented such an elegant system — so many 
+    different arenas, so many players, all in one contiguous 3D space, but <b>the ladder never fails.</b>
+  </p>
+
+  <p>
+    How do they do it?
+  </p>
+
+  <div class="img-container vertical">
+    <img src="./imgs/assignment-example.png"/>
+    <div class="caption">Example of Arena Assignment (W=Win, L=Lose)</div>
+  </div>
+
+  <div class="img-container vertical">
+    <img src="./imgs/arena-space.png"/>
+    <div class="caption">Example of Arenas in 3D Space (T and CT are arbitrary player designations)</div>
+  </div>
+
+  <p>
+    You also know:
+    <ul>
+      <li>New players can materialize into existence at any time.</li>
+      <li>Players are moved into the arenas by having their x, y and z coordinates modified.</li>
+      <li>Upon starting a new match, players are placed into a random physical arena.</li>
+    </ul>
+  </p>
+
+  <p>
+    Hopefully the creative writing exercise implants a sufficiently abstract model in your mind, 
+    the remainder of this article is more specific, but I promise it’s cool.
+  </p>
+
+  <h3>1v1 Arena Assignment In a Video Game</h3>
+
+  <p>
+    1v1 is a popular mode in many games where players want to fight one on one. But, they typically don’t want to fight the same person 
+    repeatedly, don’t want to fight someone infinitely better or worse (hopefully) than them, and should be able to enter or exit the game at any time without it breaking the game, 
+    thus a ladder-style system as pictured above is typically used.
+  </p>
+
+  <p>
+    This can be implemented any number of ways, but the I found the <b>method used by SPLewis in his <a href="https://github.com/splewis/csgo-multi-1v1">csgo-multi-1v1</a> plugin</b> to 
+    work very well in situations where simplicity and low overhead is desirable.
+  </p>
+
+  <p>
+    I will be using terms from Counter-Strike in the rest of the article as that is what I <a href="https://github.com/rockCityMath/CS2-Multi-1v1">implemented this method in myself</a>, 
+    but the main idea should remain abstract.
+  </p>
+
+  <p>
+    For reference:
+    <ul>
+      <li>CS = Counter-Strike (video game)</li>
+      <li>CT = Counter Terrorist (a team designation in CS)</li>
+      <li>T = Terrorist (the other team designation in CS)</li>
+    </ul>
+  </p>
+
+  <p>
+    <i>
+      Note: Just looking at the visuals below should give you a broad understanding of the algorithm and showcase it’s simplicity.
+    </i>
+  </p>
+
+  <p>
+    <i>
+      Note 2: See the “Context” sections at the end of this article for more details on how arenas are initialized and handled (it’s a bit specific to my use-case, but interesting)
+    </i>
+  </p>
+
+  <h3>The Arena Assignment Algorithm</h3>
+
+  <p>
+    Say you have a sever/game with 6 people connected, 2 people in the rank 1 arena, 2 people in the rank 2 arena and 2 people in the rank 3 arena. Say these players 
+    just finished a round and you now have some concept of who the winner and loser are.
+  </p>
+
+  <div class="img-container vertical">
+    <img src="./imgs/say-these-results.png"/>
+    <div class="caption">Lets Say These Were The Results</div>
+  </div>
+
+</body>

@@ -65,6 +65,16 @@ body {
   }
 }
 
+.quote {
+  text-align: center;
+  font-weight: 200;
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-right: 5rem;
+  margin-left: 5rem;
+  line-height: 2rem;
+}
+
 .block-quote {
   font-style: italic;
   font-weight: 300;
@@ -118,8 +128,9 @@ img {
     margin-left: 2rem;
   }
 }
-.img-container img {
-  max-height: 50rem;
+.img-container.vertical img {
+  max-height: 35rem;
+  width: auto;
 }
 
 .caption {
