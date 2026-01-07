@@ -23,6 +23,12 @@ body {
   margin-right: 5rem;
   margin-left: 5rem;
   line-height: 2rem;
+
+  @media (max-width: $small-screen-breakpoint-px) {
+    line-height: 1.6rem !important;
+    margin-right: 3rem;
+    margin-left: 3rem;
+  }
 }
 
 .block-quote {
@@ -44,6 +50,7 @@ p {
   margin-block-start: 0px;
   font-weight: 300;
   font-size: $body-font-size;
+
   @media (max-width: $small-screen-breakpoint-px) {
     font-size: $body-font-size-sm-screen !important;
   }
@@ -58,6 +65,10 @@ ul {
   font-size: $body-font-size;
   color: rgba(255, 255, 255, 0.8);
   line-height: 2rem;
+
+  @media (max-width: $small-screen-breakpoint-px) {
+    font-size: $body-font-size-sm-screen !important;
+  }
 }
 
 img {
@@ -69,6 +80,7 @@ img {
   text-align: center;
   margin-right: 4rem;
   margin-left: 4rem;
+
   @media (max-width: $small-screen-breakpoint-px) {
     margin-right: 2rem;
     margin-left: 2rem;
@@ -78,6 +90,7 @@ img {
     img {
       max-height: 35rem;
       width: auto;
+      max-width: 100%;
     }
   }
 }
